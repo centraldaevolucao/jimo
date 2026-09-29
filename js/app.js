@@ -1,10 +1,11 @@
 const API_URL = "SUA_URL_DO_GOOGLE_APPS_SCRIPT_AQUI";
 
-// Envio de Orçamento
-document.getElementById('form-orcamento')?.addEventListener('submit', async (e) => {
+// 1. CADASTRAR ORÇAMENTO (CLIENTE)
+document.getElementById('form-orcamento').addEventListener('submit', async (e) => {
   e.preventDefault();
-  
+
   const payload = {
+    action: "cadastrar",
     nome: document.getElementById('nome').value,
     telefone: document.getElementById('telefone').value,
     aparelho: document.getElementById('aparelho').value,
@@ -12,30 +13,32 @@ document.getElementById('form-orcamento')?.addEventListener('submit', async (e) 
   };
 
   try {
-    await fetch(API_URL, {
+    const res = await fetch(API_URL, {
       method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
-    alert('Orçamento enviado com sucesso! Entraremos em contato.');
+    const result = await res.json();
+
+    if (result.status === "sucesso") {
+      alert(`Orçamento enviado com sucesso! Anote o número da sua OS: ${result.os}`);
+      document.getElementById('form-orcamento').reset();
+    }
   } catch (err) {
-    alert('Erro ao enviar o orçamento.');
+    alert("Erro ao enviar o orçamento. Tente novamente.");
   }
 });
 
-// Consulta de Ordem de Serviço
-async function consultarOS(numeroOS) {
+// 2. CONSULTAR OS (CLIENTE)
+document.getElementById('btn-consultar').addEventListener('click', async () => {
+  const os = document.getElementById('busca-os').value.trim();
+  const divResultado = document.getElementById('resultado-consulta');
+
+  if (!os) return alert("Digite o número da OS.");
+
   try {
-    const response = await fetch(`\({API_URL}?os=\){encodeURIComponent(numeroOS)}`);
-    const result = await response.json();
-    
-    if (result.encontrado) {
-      alert(`Status da OS #\({result.os}:\nCliente:\){result.cliente}\nAparelho: \({result.aparelho}\nStatus:\){result.status}\nValor: R$ ${result.valor}`);
-    } else {
-      alert('Ordem de serviço não encontrada.');
-    }
-  } catch (err) {
-    alert('Erro ao consultar a Ordem de Serviço.');
-  }
-}
+    const res = await fetch(`\({API_URL}?os=\){encodeURIComponent(os)}`);
+    const data = await res.json();
+
+    if (data.encontrado) {
+      divResultado.classList.remove('hidden');
+      divResultado.innerHTML = `
