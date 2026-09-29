@@ -92,12 +92,10 @@ document.getElementById('formOrcamento').addEventListener('submit', function (e)
         data: new Date().toLocaleDateString('pt-BR')
     };
 
-    // 1. Salva no banco local
     const orcamentosAtuais = carregarOrcamentos();
     orcamentosAtuais.push(novoOrcamento);
     salvarOrcamentos(orcamentosAtuais);
 
-    // 2. Monta mensagem WhatsApp
     let mensagem = `*SOLICITAÇÃO DE ORÇAMENTO - JIMO ELETRÔNICA*\n\n`;
     mensagem += `🆔 *ID:* ${novoOrcamento.id}\n`;
     mensagem += `👤 *Cliente:* ${nome}\n`;
@@ -141,8 +139,8 @@ function buscarOS() {
     }
 
     const orcamentos = carregarOrcamentos();
-    const osEncontrada = orcamentos.find(o => 
-        o.id.toString() === osInput.replace(/\D/g, '') || 
+    const osEncontrada = orcamentos.find(o =>
+        o.id.toString() === osInput.replace(/\D/g, '') ||
         o.id.toString().includes(osInput)
     );
 
@@ -191,31 +189,98 @@ function buscarOS() {
    PAINEL DO TÉCNICO (ADMIN)
    ========================================== */
 const adminPanel = document.getElementById('admin-panel');
-const btnAcessoAdmin = document.getElementById('btnAcessoAdmin');
 const btnSairAdmin = document.getElementById('btnSairAdmin');
 const btnAtualizarLista = document.getElementById('btnAtualizarLista');
 const btnExportar = document.getElementById('btnExportar');
 const listaAdmin = document.getElementById('listaOrcamentosAdmin');
 const filtroAdmin = document.getElementById('filtroAdmin');
 
-/* Acessar painel */
-btnAcessoAdmin.addEventListener('click', () => {
-    const senha = prompt('Digite a senha de acesso:');
+/* ---------- FUNÇÃO CENTRAL DE ACESSO ---------- */
+function solicitarAcessoAdmin() {
+    const senha = prompt('🔒 Digite a senha de acesso do técnico:');
+
     if (senha === SENHA_ADMIN) {
+        // Fecha menu mobile se estiver aberto
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+        }
+
         adminPanel.classList.remove('hidden');
         adminPanel.scrollIntoView({ behavior: 'smooth' });
         renderizarOrcamentosAdmin();
+        console.log('✅ Acesso concedido ao Painel do Técnico.');
     } else if (senha !== null) {
-        alert('Senha incorreta!');
+        alert('❌ Senha incorreta! Tente novamente.');
+    }
+}
+
+/* ---------- MÉTODO 1: URL SECRETA (?admin=1) ---------- */
+function verificarUrlSecreta() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('admin') === '1') {
+        console.log('🔓 URL secreta detectada. Solicitando senha...');
+        // Pequeno delay para garantir que o DOM está pronto
+        setTimeout(solicitarAcessoAdmin, 500);
+    }
+}
+
+/* ---------- MÉTODO 2: ATALHO DE TECLADO (Ctrl+Shift+A) ---------- */
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+        e.preventDefault();
+        console.log('⌨️ Atalho de teclado detectado.');
+        solicitarAcessoAdmin();
     }
 });
 
-/* Sair do painel */
+/* ---------- MÉTODO 3: 3 CLIQUES NO LOGO SEGURANDO CTRL ---------- */
+const logoJimo = document.getElementById('logoJimo');
+let contadorCliquesLogo = 0;
+let timerResetCliques = null;
+
+if (logoJimo) {
+    logoJimo.addEventListener('click', (e) => {
+        // Só conta se o CTRL estiver pressionado
+        if (e.ctrlKey) {
+            e.preventDefault(); // Impede de ir para #inicio
+            contadorCliquesLogo++;
+            console.log(`🖱️ Clique ${contadorCliquesLogo}/3 no logo (com Ctrl)`);
+
+            // Limpa o timer anterior e cria um novo (reset em 2s)
+            if (timerResetCliques) clearTimeout(timerResetCliques);
+            timerResetCliques = setTimeout(() => {
+                contadorCliquesLogo = 0;
+            }, 2000);
+
+            // Se atingiu 3 cliques, dispara
+            if (contadorCliquesLogo >= 3) {
+                contadorCliquesLogo = 0;
+                clearTimeout(timerResetCliques);
+                console.log('🎯 3 cliques detectados! Acesso secreto ativado.');
+                solicitarAcessoAdmin();
+            }
+        } else {
+            // Se clicar sem Ctrl, reseta o contador
+            contadorCliquesLogo = 0;
+        }
+    });
+}
+
+/* ---------- MÉTODO 4: BOTÃO NO RODAPÉ ---------- */
+const btnAcessoAdmin = document.getElementById('btnAcessoAdmin');
+if (btnAcessoAdmin) {
+    btnAcessoAdmin.addEventListener('click', solicitarAcessoAdmin);
+}
+
+/* ---------- SAIR DO PAINEL ---------- */
 btnSairAdmin.addEventListener('click', () => {
     adminPanel.classList.add('hidden');
+    console.log('🚪 Painel do Técnico fechado.');
 });
 
-/* Renderizar orçamentos no painel */
+/* ---------- RENDERIZAR ORÇAMENTOS ---------- */
 function renderizarOrcamentosAdmin() {
     const orcamentos = carregarOrcamentos();
     const filtro = filtroAdmin.value.toLowerCase();
@@ -273,7 +338,7 @@ function renderizarOrcamentosAdmin() {
     });
 }
 
-/* Atualizar status de um orçamento */
+/* ---------- ATUALIZAR STATUS ---------- */
 window.atualizarStatusAdmin = function (id, novoStatus) {
     const orcamentos = carregarOrcamentos();
     const index = orcamentos.findIndex(o => o.id === id);
@@ -285,11 +350,10 @@ window.atualizarStatusAdmin = function (id, novoStatus) {
     }
 };
 
-/* Botões do painel */
+/* ---------- BOTÕES DO PAINEL ---------- */
 btnAtualizarLista.addEventListener('click', renderizarOrcamentosAdmin);
 filtroAdmin.addEventListener('input', renderizarOrcamentosAdmin);
 
-/* Exportar backup */
 btnExportar.addEventListener('click', () => {
     const orcamentos = carregarOrcamentos();
     const dataStr = JSON.stringify(orcamentos, null, 2);
@@ -308,4 +372,7 @@ btnExportar.addEventListener('click', () => {
 /* ==========================================
    INICIALIZAÇÃO
    ========================================== */
-document.addEventListener('DOMContentLoaded', inicializarBanco);
+document.addEventListener('DOMContentLoaded', () => {
+    inicializarBanco();
+    verificarUrlSecreta(); // Verifica se a URL secreta foi usada
+});
