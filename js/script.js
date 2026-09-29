@@ -1,64 +1,63 @@
-const STORAGE_KEY = "jimo_eletronica_os_data";
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
 
-// Inicializa a base de dados buscando do caminho backend/dados.json
-async function carregarBaseInicial() {
-  const dadosLocais = localStorage.getItem(STORAGE_KEY);
-  if (!dadosLocais) {
-    try {
-      const res = await fetch('backend/dados.json');
-      const json = await res.json();
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(json.ordensServico));
-    } catch (err) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify([]));
+mobileMenuBtn.addEventListener('click', () => {
+    const isHidden = mobileMenu.classList.contains('hidden');
+    if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-xmark');
+    } else {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
     }
-  }
-}
-
-function obterOrdens() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-}
-
-function salvarOrdens(ordens) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(ordens));
-}
-
-// 1. CADASTRAR ORÇAMENTO (CLIENTE / RECEPÇÃO)
-document.getElementById('form-orcamento').addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const ordens = obterOrdens();
-  const novoId = "OS-" + (1001 + ordens.length);
-  const dataHoje = new Date().toLocaleDateString('pt-BR');
-
-  const novaOS = {
-    os: novoId,
-    data: dataHoje,
-    cliente: document.getElementById('nome').value.trim(),
-    telefone: document.getElementById('telefone').value.trim(),
-    aparelho: document.getElementById('aparelho').value.trim(),
-    defeito: document.getElementById('defeito').value.trim(),
-    status: "Em Análise",
-    valor: "0,00"
-  };
-
-  ordens.push(novaOS);
-  salvarOrdens(ordens);
-
-  alert(`Orçamento cadastrado com sucesso!\n\nNúmero da OS: ${novoId}`);
-  document.getElementById('form-orcamento').reset();
 });
 
-// 2. CONSULTAR OS (CLIENTE)
-document.getElementById('btn-consultar').addEventListener('click', () => {
-  const osBusca = document.getElementById('busca-os').value.trim().toUpperCase();
-  const divResultado = document.getElementById('resultado-consulta');
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
+    });
+});
 
-  if (!osBusca) return alert("Digite o número da OS para consultar.");
+function enviarOrcamento(event) {
+    event.preventDefault();
 
-  const ordens = obterOrdens();
-  const encontrada = ordens.find(item => item.os.toUpperCase() === osBusca);
+    const nome = document.getElementById('nome').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+    const tipo = document.getElementById('tipoEquipamento').value;
+    const marca = document.getElementById('marca').value.trim() || 'Não informada';
+    const modelo = document.getElementById('modelo').value.trim() || 'Não informado';
+    const defeito = document.getElementById('defeito').value.trim();
 
-  divResultado.classList.remove('hidden');
+    let mensagem = `*SOLICITAÇÃO DE ORÇAMENTO - JIMO ELETRÔNICA*\n\n`;
+    mensagem += `👤 *Cliente:* ${nome}\n`;
+    mensagem += `📱 *Telefone:* ${whatsapp}\n`;
+    mensagem += `🛠️ *Equipamento:* ${tipo}\n`;
+    mensagem += `🏷️ *Marca:* ${marca}\n`;
+    mensagem += `📺 *Modelo/Pol:* ${modelo}\n\n`;
+    mensagem += `❌ *Defeito Informado:* ${defeito}\n\n`;
+    mensagem += `_Mensagem enviada via site JIMO Eletrônica._`;
 
-  if (encontrada) {
-    divResultado.innerHTML = `
+    const feedback = document.getElementById('orcamentoFeedback');
+    feedback.classList.remove('hidden');
+
+    const numeroEmpresa = '5591982871598';
+    const urlWhatsApp = `https://wa.me/\({numeroEmpresa}?text=\){encodeURIComponent(mensagem)}`;
+
+    setTimeout(() => {
+        window.open(urlWhatsApp, '_blank');
+    }, 800);
+}
+
+function buscarOS() {
+    const osInput = document.getElementById('inputNumeroOS').value.trim();
+    const container = document.getElementById('resultadoOSContainer');
+    const content = document.getElementById('resultadoOSContent');
+
+    if (!osInput) {
+        container.classList.remove('hidden');
+        content.innerHTML = `
