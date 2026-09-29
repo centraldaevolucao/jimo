@@ -54,7 +54,8 @@
     <header class="fixed top-0 left-0 w-full z-50 bg-brand-dark/95 backdrop-blur-md border-b border-brand-cyan/20 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <a href="#inicio" class="flex items-center gap-3 group">
+                <!-- Logo (ID adicionado para o método dos 3 cliques) -->
+                <a href="#inicio" id="logoJimo" class="flex items-center gap-3 group select-none">
                     <div class="relative flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-blue to-brand-cyan p-0.5 shadow-lg shadow-brand-cyan/20 group-hover:scale-105 transition-transform duration-300">
                         <div class="w-full h-full bg-brand-navy rounded-[10px] flex items-center justify-center text-brand-cyan font-bold text-2xl relative overflow-hidden">
                             <i class="fa-solid fa-microchip text-xl"></i>
@@ -462,9 +463,7 @@
                     <input type="text" id="filtroAdmin" placeholder="Filtrar por nome, ID ou status..." class="w-full bg-brand-dark border border-slate-700 focus:border-brand-cyan rounded-xl py-3 px-4 text-white text-sm outline-none transition">
                 </div>
 
-                <div id="listaOrcamentosAdmin" class="space-y-4 max-h-[600px] overflow-y-auto pr-2">
-                    <!-- Cards renderizados via JS -->
-                </div>
+                <div id="listaOrcamentosAdmin" class="space-y-4 max-h-[600px] overflow-y-auto pr-2"></div>
             </div>
         </div>
     </section>
@@ -504,7 +503,11 @@
                 <p>© 2026 JIMO Eletrônica — Todos os direitos reservados.</p>
                 <div class="flex items-center gap-4">
                     <p>Ananindeua - Pará - Brasil</p>
-                    <button id="btnAcessoAdmin" class="opacity-20 hover:opacity-100 transition text-slate-500 hover:text-brand-cyan text-[10px] underline">Acesso Restrito</button>
+                    <!-- Botão de emergência (método 4) -->
+                    <button id="btnAcessoAdmin" class="opacity-40 hover:opacity-100 transition text-slate-500 hover:text-brand-cyan text-[10px] flex items-center gap-1.5" title="Acesso Restrito">
+                        <i class="fa-solid fa-lock text-[10px]"></i>
+                        <span class="underline">Acesso Restrito</span>
+                    </button>
                 </div>
             </div>
         </div>
