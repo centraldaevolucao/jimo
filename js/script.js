@@ -7,21 +7,21 @@ const CAMINHO_BACKEND = 'backend/orcamentos.json';
 const SENHA_ADMIN = 'admin123';
 const NUMERO_WHATSAPP = '5591982871598';
 
-/* Carrega os orçamentos salvos no navegador */
+/* Carrega orçamentos do localStorage */
 function carregarOrcamentos() {
     const dados = localStorage.getItem(STORAGE_KEY);
     return dados ? JSON.parse(dados) : [];
 }
 
-/* Salva os orçamentos no navegador */
+/* Salva orçamentos no localStorage */
 function salvarOrcamentos(orcamentos) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(orcamentos));
 }
 
-/* Inicializa o banco lendo o arquivo JSON do backend (apenas na 1ª vez) */
+/* Inicializa o banco lendo o JSON do backend (apenas na 1ª execução) */
 async function inicializarBanco() {
     const orcamentosLocais = carregarOrcamentos();
-    
+
     if (orcamentosLocais.length > 0) {
         console.log('Banco local já possui dados. Ignorando seed do backend.');
         return;
@@ -80,7 +80,6 @@ document.getElementById('formOrcamento').addEventListener('submit', function (e)
     const modelo = document.getElementById('modelo').value.trim() || 'Não informado';
     const defeito = document.getElementById('defeito').value.trim();
 
-    // Cria o objeto do orçamento para salvar
     const novoOrcamento = {
         id: Date.now(),
         nome: nome,
@@ -93,12 +92,12 @@ document.getElementById('formOrcamento').addEventListener('submit', function (e)
         data: new Date().toLocaleDateString('pt-BR')
     };
 
-    // 1. Salva no banco local (localStorage)
+    // 1. Salva no banco local
     const orcamentosAtuais = carregarOrcamentos();
     orcamentosAtuais.push(novoOrcamento);
     salvarOrcamentos(orcamentosAtuais);
 
-    // 2. Monta mensagem do WhatsApp
+    // 2. Monta mensagem WhatsApp
     let mensagem = `*SOLICITAÇÃO DE ORÇAMENTO - JIMO ELETRÔNICA*\n\n`;
     mensagem += `🆔 *ID:* ${novoOrcamento.id}\n`;
     mensagem += `👤 *Cliente:* ${nome}\n`;
@@ -116,11 +115,9 @@ document.getElementById('formOrcamento').addEventListener('submit', function (e)
 
     setTimeout(() => {
         window.open(urlWhatsApp, '_blank');
-        // Esconde o feedback após um tempo
         setTimeout(() => feedback.classList.add('hidden'), 3000);
     }, 800);
 
-    // Limpa o formulário
     this.reset();
 });
 
@@ -143,9 +140,11 @@ function buscarOS() {
         return;
     }
 
-    // Tenta encontrar o orçamento pelo ID digitado
     const orcamentos = carregarOrcamentos();
-    const osEncontrada = orcamentos.find(o => o.id.toString() === osInput.replace(/\D/g, '') || o.id.toString().includes(osInput));
+    const osEncontrada = orcamentos.find(o => 
+        o.id.toString() === osInput.replace(/\D/g, '') || 
+        o.id.toString().includes(osInput)
+    );
 
     container.classList.remove('hidden');
 
@@ -162,22 +161,10 @@ function buscarOS() {
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-300 pt-1">
-                <div>
-                    <strong class="text-slate-400 block">Cliente:</strong>
-                    <span>${osEncontrada.nome}</span>
-                </div>
-                <div>
-                    <strong class="text-slate-400 block">Equipamento:</strong>
-                    <span>${osEncontrada.equipamento} ${osEncontrada.marca !== 'Não informada' ? '- ' + osEncontrada.marca : ''}</span>
-                </div>
-                <div>
-                    <strong class="text-slate-400 block">Data de Entrada:</strong>
-                    <span>${osEncontrada.data}</span>
-                </div>
-                <div>
-                    <strong class="text-slate-400 block">Defeito Relatado:</strong>
-                    <span>${osEncontrada.defeito}</span>
-                </div>
+                <div><strong class="text-slate-400 block">Cliente:</strong><span>${osEncontrada.nome}</span></div>
+                <div><strong class="text-slate-400 block">Equipamento:</strong><span>${osEncontrada.equipamento} ${osEncontrada.marca !== 'Não informada' ? '- ' + osEncontrada.marca : ''}</span></div>
+                <div><strong class="text-slate-400 block">Data de Entrada:</strong><span>${osEncontrada.data}</span></div>
+                <div><strong class="text-slate-400 block">Defeito Relatado:</strong><span>${osEncontrada.defeito}</span></div>
             </div>
 
             <div class="bg-brand-navy p-3 rounded-xl border border-brand-cyan/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs mt-2">
@@ -211,7 +198,7 @@ const btnExportar = document.getElementById('btnExportar');
 const listaAdmin = document.getElementById('listaOrcamentosAdmin');
 const filtroAdmin = document.getElementById('filtroAdmin');
 
-// Acessar painel
+/* Acessar painel */
 btnAcessoAdmin.addEventListener('click', () => {
     const senha = prompt('Digite a senha de acesso:');
     if (senha === SENHA_ADMIN) {
@@ -223,22 +210,21 @@ btnAcessoAdmin.addEventListener('click', () => {
     }
 });
 
-// Sair do painel
+/* Sair do painel */
 btnSairAdmin.addEventListener('click', () => {
     adminPanel.classList.add('hidden');
 });
 
-// Renderizar orçamentos no painel
+/* Renderizar orçamentos no painel */
 function renderizarOrcamentosAdmin() {
     const orcamentos = carregarOrcamentos();
     const filtro = filtroAdmin.value.toLowerCase();
-    
+
     listaAdmin.innerHTML = '';
 
-    // Filtra os orçamentos
-    const filtrados = orcamentos.filter(o => 
-        o.nome.toLowerCase().includes(filtro) || 
-        o.id.toString().includes(filtro) || 
+    const filtrados = orcamentos.filter(o =>
+        o.nome.toLowerCase().includes(filtro) ||
+        o.id.toString().includes(filtro) ||
         o.status.toLowerCase().includes(filtro)
     );
 
@@ -247,19 +233,17 @@ function renderizarOrcamentosAdmin() {
         return;
     }
 
-    // Ordena do mais recente para o mais antigo
     filtrados.sort((a, b) => b.id - a.id);
 
     filtrados.forEach(orc => {
         const card = document.createElement('div');
         card.className = 'bg-brand-slate/80 p-5 rounded-xl border border-slate-700 flex flex-col md:flex-row justify-between items-start md:items-center gap-4';
-        
+
         const statusColors = {
             'Pendente': 'bg-amber-500/20 text-amber-400 border-amber-500/40',
             'Em Andamento': 'bg-blue-500/20 text-blue-400 border-blue-500/40',
             'Concluído': 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40'
         };
-
         const statusColor = statusColors[orc.status] || 'bg-slate-500/20 text-slate-400 border-slate-500/40';
 
         card.innerHTML = `
@@ -281,7 +265,7 @@ function renderizarOrcamentosAdmin() {
                     <option value="Concluído" ${orc.status === 'Concluído' ? 'selected' : ''}>Concluído</option>
                 </select>
                 <a href="https://wa.me/${orc.whatsapp ? orc.whatsapp.replace(/\D/g, '') : NUMERO_WHATSAPP}?text=Ol%C3%A1%20${encodeURIComponent(orc.nome)},%20sobre%20a%20OS%20${orc.id}..." target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold py-2 px-3 rounded-lg flex items-center justify-center gap-1 transition">
-                    <i class="fa-brands fa-whatsapp"></i> Contatar Cliente
+                    <i class="fa-brands fa-whatsapp"></i> Contatar
                 </a>
             </div>
         `;
@@ -289,11 +273,11 @@ function renderizarOrcamentosAdmin() {
     });
 }
 
-// Atualizar status
-window.atualizarStatusAdmin = function(id, novoStatus) {
+/* Atualizar status de um orçamento */
+window.atualizarStatusAdmin = function (id, novoStatus) {
     const orcamentos = carregarOrcamentos();
     const index = orcamentos.findIndex(o => o.id === id);
-    
+
     if (index !== -1) {
         orcamentos[index].status = novoStatus;
         salvarOrcamentos(orcamentos);
@@ -301,19 +285,17 @@ window.atualizarStatusAdmin = function(id, novoStatus) {
     }
 };
 
-// Atualizar lista manualmente
+/* Botões do painel */
 btnAtualizarLista.addEventListener('click', renderizarOrcamentosAdmin);
-
-// Filtro em tempo real
 filtroAdmin.addEventListener('input', renderizarOrcamentosAdmin);
 
-// Exportar backup JSON
+/* Exportar backup */
 btnExportar.addEventListener('click', () => {
     const orcamentos = carregarOrcamentos();
     const dataStr = JSON.stringify(orcamentos, null, 2);
     const blob = new Blob([dataStr], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
-    
+
     const a = document.createElement('a');
     a.href = url;
     a.download = `backup_orcamentos_${Date.now()}.json`;
