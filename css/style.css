@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f6f9;
+  color: #333;
+}
+
+header {
+  background-color: #1e293b;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tecnico-card {
+  border-left: 5px solid #2563eb;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #1e293b;
+}
+
+input, textarea, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #2563eb;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+.inline-form {
+  display: flex;
+  gap: 10px;
+}
+
+.inline-form input {
+  flex: 1;
+}
+
+.inline-form button {
+  width: auto;
+  padding: 0 20px;
+  height: 38px;
+}
+
+.hidden {
+  display: none;
+}
+
+.resultado {
+  background-color: #e2e8f0;
+  padding: 15px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+hr {
+  margin: 15px 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
