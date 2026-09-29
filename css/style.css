@@ -1,423 +1,61 @@
 /* ==========================================
-   RESET E CONFIGURAÇÕES GLOBAIS
+   ESTILOS PERSONALIZADOS E ANIMAÇÕES
    ========================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
 body {
-    background-color: #e9ecef;
-    color: #333;
-    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+    background-color: #030f1d;
+    color: #e2e8f0;
+    overflow-x: hidden;
 }
 
-/* ==========================================
-   CONTAINER PRINCIPAL
-   ========================================== */
-.container {
-    max-width: 900px;
-    margin: 30px auto;
-    background-color: #ffffff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    min-height: 1100px;
+/* Fundo com padrão de circuito tecnológico */
+.circuit-pattern {
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(0, 168, 255, 0.08) 0%, transparent 60%),
+        linear-gradient(rgba(0, 168, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 168, 255, 0.05) 1px, transparent 1px);
+    background-size: 100% 100%, 30px 30px, 30px 30px;
 }
 
-/* ==========================================
-   CABEÇALHO
-   ========================================== */
-header {
-    background: linear-gradient(135deg, #0a1628 0%, #0d2547 100%);
-    color: white;
-    padding: 25px 30px;
-    position: relative;
-    border-bottom: 5px solid #007bff;
+/* Borda com gradiente sutil */
+.gradient-border {
+    border: 1px solid transparent;
+    background-image: linear-gradient(#05182c, #05182c), linear-gradient(135deg, #00a8ff, #003b6e);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
 }
 
-header::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, #007bff, #4da6ff, #007bff);
+/* Animação de pulso para o botão flutuante do WhatsApp */
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+    50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
 }
 
-.header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+.whatsapp-pulse {
+    animation: pulseGlow 2s infinite;
 }
 
-.header-img {
-    width: 100px;
-    height: auto;
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
 }
-
-.logo-container {
-    text-align: center;
-    flex-grow: 1;
+::-webkit-scrollbar-track {
+    background: #030f1d;
 }
-
-.logo-text {
-    font-size: 3.5rem;
-    font-weight: 900;
-    letter-spacing: 3px;
-    line-height: 1;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
-    color: #ffffff;
-}
-
-.logo-subtext {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #4da6ff;
-    letter-spacing: 6px;
-    margin-top: -5px;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
-}
-
-.tagline {
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    background: rgba(0, 123, 255, 0.2);
-    display: inline-block;
-    padding: 5px 20px;
-    border-radius: 20px;
-    margin-top: 10px;
-}
-
-/* ==========================================
-   CONTEÚDO PRINCIPAL
-   ========================================== */
-main {
-    flex-grow: 1;
-    padding: 40px 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* ----- Seção de Serviços ----- */
-.services-section {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.services-section h2 {
-    color: #0d2547;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    position: relative;
-    display: inline-block;
-}
-
-.services-section h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: #007bff;
-    margin: 8px auto 0;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    width: 100%;
-}
-
-.service-card {
-    background: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
-    padding: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-color: #007bff;
-}
-
-.service-card i {
-    font-size: 2rem;
-    color: #007bff;
-    margin-bottom: 15px;
-}
-
-.service-card h3 {
-    font-size: 1.1rem;
-    color: #0d2547;
-    margin-bottom: 10px;
-}
-
-.service-card p {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-/* ----- Formulário de Orçamento ----- */
-.quote-section {
-    width: 100%;
-    max-width: 600px;
-    background: #ffffff;
-    border: 2px solid #007bff;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.quote-section h2 {
-    color: #0d2547;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: #333;
-    font-size: 0.9rem;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 80px;
-}
-
-.btn-submit {
-    width: 100%;
-    background-color: #25D366;
-    color: white;
-    border: none;
-    padding: 15px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.btn-submit:hover {
-    background-color: #1ebe57;
-    transform: scale(1.02);
-}
-
-/* ==========================================
-   PAINEL DO TÉCNICO
-   ========================================== */
-.admin-section {
-    width: 100%;
-    max-width: 800px;
-    background: #ffffff;
-    border: 2px solid #0d2547;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.admin-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-}
-
-.admin-header h2 {
-    color: #0d2547;
-    font-size: 1.5rem;
-}
-
-.btn-sair {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.btn-sair:hover {
-    background-color: #c82333;
-}
-
-.admin-controls {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.btn-action {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.btn-action:hover {
-    background-color: #0056b3;
-}
-
-.lista-orcamentos {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.orcamento-card {
-    background: #f8f9fa;
-    border-left: 5px solid #007bff;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.orcamento-info {
-    flex-grow: 1;
-}
-
-.orcamento-info p {
-    margin: 3px 0;
-    font-size: 0.9rem;
-}
-
-.orcamento-info strong {
-    color: #0d2547;
-}
-
-.status-badge {
-    padding: 3px 8px;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    color: white;
-    display: inline-block;
-    margin-top: 5px;
-}
-
-.status-Pendente { background-color: #ffc107; color: #333; }
-.status-Em-Andamento { background-color: #17a2b8; }
-.status-Concluído { background-color: #28a745; }
-
-.orcamento-actions select {
-    padding: 8px;
+::-webkit-scrollbar-thumb {
+    background: #0081c9;
     border-radius: 4px;
-    border: 1px solid #ccc;
-    font-size: 0.85rem;
-    background-color: #fff;
-    cursor: pointer;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00a8ff;
 }
 
-/* ==========================================
-   RODAPÉ
-   ========================================== */
-footer {
-    background-color: #0a1628;
-    color: white;
-    padding: 30px;
-    position: relative;
-    border-top: 5px solid #007bff;
+/* Ajustes para o Painel do Técnico (scroll interno) */
+#listaOrcamentosAdmin::-webkit-scrollbar {
+    width: 6px;
 }
-
-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 200px;
-    height: 100%;
-    background: linear-gradient(135deg, transparent 50%, rgba(0, 123, 255, 0.2) 50%);
-    pointer-events: none;
-}
-
-.contact-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contact-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    font-size: 0.95rem;
-}
-
-.contact-list i {
-    color: #4da6ff;
-    font-size: 1.2rem;
-    margin-top: 3px;
-    width: 20px;
-    text-align: center;
-}
-
-/* ==========================================
-   RESPONSIVIDADE
-   ========================================== */
-@media (max-width: 768px) {
-    .header-img { display: none; }
-    .logo-text { font-size: 2.5rem; }
-    .logo-subtext { font-size: 1.4rem; }
-    .tagline { font-size: 0.8rem; }
-    main { padding: 20px 15px; }
-    .container { margin: 0; border-radius: 0; min-height: 100vh; }
-    footer { padding: 20px 15px; }
-    .orcamento-card { flex-direction: column; align-items: flex-start; }
-    .admin-controls { flex-direction: column; }
+#listaOrcamentosAdmin::-webkit-scrollbar-thumb {
+    background: #00a8ff;
+    border-radius: 4px;
 }
