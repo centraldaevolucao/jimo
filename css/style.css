@@ -1,191 +1,423 @@
+/* ==========================================
+   RESET E CONFIGURAÇÕES GLOBAIS
+   ========================================== */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  background-color: #0f172a;
-  color: #f8fafc;
-  min-height: 100vh;
+    background-color: #e9ecef;
+    color: #333;
+    line-height: 1.6;
 }
 
-header {
-  background-color: #1e293b;
-  text-align: center;
-  padding: 25px 15px;
-  border-bottom: 3px solid #3b82f6;
-}
-
-header h1 {
-  font-size: 2rem;
-  color: #38bdf8;
-  margin-bottom: 5px;
-}
-
-header p {
-  color: #94a3b8;
-  font-size: 0.95rem;
-}
-
+/* ==========================================
+   CONTAINER PRINCIPAL
+   ========================================== */
 .container {
-  max-width: 750px;
-  margin: 30px auto;
-  padding: 0 15px;
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 1100px;
 }
 
-.card {
-  background: #1e293b;
-  padding: 22px;
-  border-radius: 10px;
-  margin-bottom: 25px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-  border: 1px solid #334155;
+/* ==========================================
+   CABEÇALHO
+   ========================================== */
+header {
+    background: linear-gradient(135deg, #0a1628 0%, #0d2547 100%);
+    color: white;
+    padding: 25px 30px;
+    position: relative;
+    border-bottom: 5px solid #007bff;
 }
 
-.tecnico-card {
-  border-left: 5px solid #eab308;
+header::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #007bff, #4da6ff, #007bff);
 }
 
-.admin-card {
-  border-left: 5px solid #64748b;
-  font-size: 0.9rem;
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-.admin-card p {
-  margin-bottom: 12px;
-  color: #94a3b8;
+.header-img {
+    width: 100px;
+    height: auto;
 }
 
-h2 {
-  font-size: 1.25rem;
-  margin-bottom: 18px;
-  color: #f1f5f9;
+.logo-container {
+    text-align: center;
+    flex-grow: 1;
 }
 
-label {
-  display: block;
-  font-size: 0.85rem;
-  color: #cbd5e1;
-  margin-bottom: 5px;
+.logo-text {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    line-height: 1;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+    color: #ffffff;
 }
 
-.input-group {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 12px;
+.logo-subtext {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4da6ff;
+    letter-spacing: 6px;
+    margin-top: -5px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
 }
 
-.input-group > * {
-  flex: 1;
+.tagline {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: rgba(0, 123, 255, 0.2);
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 20px;
+    margin-top: 10px;
 }
 
-input, textarea, select {
-  width: 100%;
-  padding: 12px;
-  background-color: #0f172a;
-  border: 1px solid #475569;
-  border-radius: 6px;
-  color: #fff;
-  font-size: 0.95rem;
-  outline: none;
+/* ==========================================
+   CONTEÚDO PRINCIPAL
+   ========================================== */
+main {
+    flex-grow: 1;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-input:focus, textarea:focus, select:focus {
-  border-color: #38bdf8;
+/* ----- Seção de Serviços ----- */
+.services-section {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-textarea {
-  resize: vertical;
-  margin-bottom: 12px;
+.services-section h2 {
+    color: #0d2547;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
 }
 
-button {
-  padding: 12px;
-  font-weight: 600;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: opacity 0.2s;
-  font-size: 0.95rem;
+.services-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #007bff;
+    margin: 8px auto 0;
 }
 
-button:hover {
-  opacity: 0.9;
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
 }
 
-.btn-primary { background-color: #2563eb; color: #fff; width: 100%; }
-.btn-secondary { background-color: #0284c7; color: #fff; }
-.btn-warning { background-color: #ca8a04; color: #fff; }
-.btn-success { background-color: #16a34a; color: #fff; width: 100%; margin-top: 15px; }
-.btn-danger { background-color: #dc2626; color: #fff; }
-.btn-outline { background-color: transparent; border: 1px solid #475569; color: #cbd5e1; }
-
-.inline-form {
-  display: flex;
-  gap: 10px;
+.service-card {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.inline-form input {
-  flex: 1;
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: #007bff;
 }
 
-.inline-form button {
-  width: auto;
-  white-space: nowrap;
+.service-card i {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 15px;
 }
 
-.inline-buttons {
-  display: flex;
-  gap: 10px;
+.service-card h3 {
+    font-size: 1.1rem;
+    color: #0d2547;
+    margin-bottom: 10px;
 }
 
-.hidden {
-  display: none;
+.service-card p {
+    font-size: 0.9rem;
+    color: #666;
 }
 
-.resultado {
-  background-color: #0f172a;
-  padding: 15px;
-  border-radius: 6px;
-  margin-top: 15px;
-  border: 1px solid #334155;
+/* ----- Formulário de Orçamento ----- */
+.quote-section {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.resultado p {
-  margin-bottom: 8px;
+.quote-section h2 {
+    color: #0d2547;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.resultado p:last-child {
-  margin-bottom: 0;
+.form-group {
+    margin-bottom: 15px;
 }
 
-.info-os {
-  background-color: #0f172a;
-  padding: 12px;
-  border-radius: 6px;
-  margin-bottom: 15px;
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
 }
 
-.info-os p {
-  margin-bottom: 6px;
-  font-size: 0.9rem;
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #1ebe57;
+    transform: scale(1.02);
+}
+
+/* ==========================================
+   PAINEL DO TÉCNICO
+   ========================================== */
+.admin-section {
+    width: 100%;
+    max-width: 800px;
+    background: #ffffff;
+    border: 2px solid #0d2547;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.admin-header h2 {
+    color: #0d2547;
+    font-size: 1.5rem;
+}
+
+.btn-sair {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-sair:hover {
+    background-color: #c82333;
+}
+
+.admin-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-action {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-action:hover {
+    background-color: #0056b3;
+}
+
+.lista-orcamentos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.orcamento-card {
+    background: #f8f9fa;
+    border-left: 5px solid #007bff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.orcamento-info {
+    flex-grow: 1;
+}
+
+.orcamento-info p {
+    margin: 3px 0;
+    font-size: 0.9rem;
+}
+
+.orcamento-info strong {
+    color: #0d2547;
 }
 
 .status-badge {
-  color: #38bdf8;
-  font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    margin-top: 5px;
 }
 
-hr {
-  margin: 15px 0;
-  border: 0;
-  border-top: 1px solid #334155;
+.status-Pendente { background-color: #ffc107; color: #333; }
+.status-Em-Andamento { background-color: #17a2b8; }
+.status-Concluído { background-color: #28a745; }
+
+.orcamento-actions select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 0.85rem;
+    background-color: #fff;
+    cursor: pointer;
 }
 
-@media (max-width: 600px) {
-  .input-group, .inline-form, .inline-buttons {
+/* ==========================================
+   RODAPÉ
+   ========================================== */
+footer {
+    background-color: #0a1628;
+    color: white;
+    padding: 30px;
+    position: relative;
+    border-top: 5px solid #007bff;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 50%, rgba(0, 123, 255, 0.2) 50%);
+    pointer-events: none;
+}
+
+.contact-list {
+    list-style: none;
+    display: flex;
     flex-direction: column;
-  }
+    gap: 15px;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    font-size: 0.95rem;
+}
+
+.contact-list i {
+    color: #4da6ff;
+    font-size: 1.2rem;
+    margin-top: 3px;
+    width: 20px;
+    text-align: center;
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+   ========================================== */
+@media (max-width: 768px) {
+    .header-img { display: none; }
+    .logo-text { font-size: 2.5rem; }
+    .logo-subtext { font-size: 1.4rem; }
+    .tagline { font-size: 0.8rem; }
+    main { padding: 20px 15px; }
+    .container { margin: 0; border-radius: 0; min-height: 100vh; }
+    footer { padding: 20px 15px; }
+    .orcamento-card { flex-direction: column; align-items: flex-start; }
+    .admin-controls { flex-direction: column; }
 }
