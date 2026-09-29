@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1717000000000,
+    "nome": "João Silva",
+    "equipamento": "TV LED/LCD",
+    "defeito": "A TV liga, mas a tela fica escura. Suspeita de problema na placa de LED.",
+    "status": "Em Andamento",
+    "data": "29/05/2024"
+  },
+  {
+    "id": 1717000000001,
+    "nome": "Maria Oliveira",
+    "equipamento": "Placa Eletrônica",
+    "defeito": "Placa de som não liga. Capacitor estufado visível.",
+    "status": "Pendente",
+    "data": "30/05/2024"
+  }
+]
