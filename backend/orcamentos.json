@@ -1,18 +1,37 @@
 [
   {
-    "id": 1717000000000,
+    "id": "20260529-1045",
     "nome": "João Silva",
-    "equipamento": "TV LED/LCD",
+    "whatsapp": "(91) 98888-1111",
+    "equipamento": "Smart TV / TV LED",
+    "marca": "Samsung",
+    "modelo": "55UN7310",
     "defeito": "A TV liga, mas a tela fica escura. Suspeita de problema na placa de LED.",
-    "status": "Em Andamento",
-    "data": "29/05/2024"
+    "status": "Aguardando Aprovação",
+    "orcamentoTecnico": {
+      "valor": "450.00",
+      "prazo": "3 dias úteis",
+      "descricao": "Troca de 8 barras de LED + mão de obra",
+      "observacoes": "Garantia de 90 dias",
+      "tecnico": "Administrador",
+      "data": "29/05/2026"
+    },
+    "tecnicoResponsavel": "Administrador",
+    "data": "29/05/2026",
+    "dataISO": "2026-05-29T10:00:00.000Z"
   },
   {
-    "id": 1717000000001,
+    "id": "20260530-2213",
     "nome": "Maria Oliveira",
+    "whatsapp": "(91) 97777-2222",
     "equipamento": "Placa Eletrônica",
+    "marca": "LG",
+    "modelo": "Placa de Som",
     "defeito": "Placa de som não liga. Capacitor estufado visível.",
     "status": "Pendente",
-    "data": "30/05/2024"
+    "orcamentoTecnico": null,
+    "tecnicoResponsavel": null,
+    "data": "30/05/2026",
+    "dataISO": "2026-05-30T14:30:00.000Z"
   }
 ]

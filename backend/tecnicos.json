@@ -1,0 +1,12 @@
+[
+  {
+    "id": "tec_master_001",
+    "nome": "Administrador",
+    "usuario": "admin",
+    "email": "j.ivomota2@gmail.com",
+    "telefone": "(91) 98287-1598",
+    "senha": "admin123",
+    "ativo": true,
+    "isMaster": true
+  }
+]
