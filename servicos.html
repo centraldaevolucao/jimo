@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços | JIMO Eletrônica</title>
+    <meta name="description" content="Conserto de Smart TVs, reparo de placas eletrônicas e eletrônicos em geral.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2300a8ff%22/><text x=%2250%%22 y=%2265%%22 font-size=%2260%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22>J</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                colors: { brand: { dark:'#030f1d', navy:'#05182c', blue:'#007bbd', cyan:'#00a8ff', lightCyan:'#00e5ff', accent:'#00c6ff', slate:'#13283f' } },
+                fontFamily: { sans: ['Poppins', 'sans-serif'] }
+            }}
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="circuit-pattern antialiased text-slate-100 flex flex-col min-h-screen">
+
+    <div id="header-placeholder"></div>
+
+    <main class="flex-grow pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-cyan font-semibold text-xs tracking-widest uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Nossas Especialidades</span>
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-white mt-3">Serviços Técnicos</h1>
+                <p class="text-slate-400 mt-3">Soluções completas em Smart TV e eletrônicos em geral.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cards de serviço (mesmos do exemplo anterior) -->
+                <div class="bg-brand-dark/90 p-8 rounded-2xl border border-slate-800 hover:border-brand-cyan/50 transition shadow-xl">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-tr from-brand-blue/30 to-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-2xl mb-6"><i class="fa-solid fa-tv"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Conserto de Smart TVs</h3>
+                    <p class="text-slate-400 text-sm">Reparo em Smart TVs de todas as marcas (LED, OLED, QLED).</p>
+                </div>
+                <div class="bg-brand-dark/90 p-8 rounded-2xl border border-slate-800 hover:border-brand-cyan/50 transition shadow-xl">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-tr from-brand-blue/30 to-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-2xl mb-6"><i class="fa-solid fa-microchip"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Placas Eletrônicas</h3>
+                    <p class="text-slate-400 text-sm">Recuperação e recondicionamento de placas em geral.</p>
+                </div>
+                <div class="bg-brand-dark/90 p-8 rounded-2xl border border-slate-800 hover:border-brand-cyan/50 transition shadow-xl">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-tr from-brand-blue/30 to-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-2xl mb-6"><i class="fa-solid fa-wave-square"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-3">Diagnóstico Preciso</h3>
+                    <p class="text-slate-400 text-sm">Análise minuciosa com instrumentos avançados.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/layout.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar OS | JIMO Eletrônica</title>
+    <meta name="description" content="Consulte o status e orçamento da sua Ordem de Serviço na JIMO Eletrônica.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2300a8ff%22/><text x=%2250%%22 y=%2265%%22 font-size=%2260%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22>J</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                colors: { brand: { dark:'#030f1d', navy:'#05182c', blue:'#007bbd', cyan:'#00a8ff', lightCyan:'#00e5ff', accent:'#00c6ff', slate:'#13283f' } },
+                fontFamily: { sans: ['Poppins', 'sans-serif'] }
+            }}
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="circuit-pattern antialiased text-slate-100 flex flex-col min-h-screen">
+
+    <div id="header-placeholder"></div>
+
+    <main class="flex-grow pt-32 pb-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-brand-navy via-brand-slate to-brand-dark p-8 sm:p-12 rounded-3xl border border-brand-cyan/30 shadow-2xl">
+                <div class="text-center max-w-2xl mx-auto space-y-3 mb-8">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-semibold"><i class="fa-solid fa-barcode"></i> ACOMPANHAMENTO</div>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-white">Consultar Ordem de Serviço</h1>
+                    <p class="text-slate-300 text-sm">Digite o ID da OS para ver o status e o orçamento técnico.</p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+                    <input type="text" id="inputNumeroOS" placeholder="Ex: 1717000000000" class="flex-1 bg-brand-dark border border-slate-700 focus:border-brand-cyan rounded-xl py-3.5 px-4 text-white text-sm placeholder-slate-500 outline-none transition font-mono">
+                    <button onclick="buscarOS()" class="bg-brand-cyan hover:bg-brand-lightCyan text-brand-dark font-bold px-6 py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-lg">
+                        <i class="fa-solid fa-magnifying-glass"></i> Consultar
+                    </button>
+                </div>
+
+                <div id="resultadoOSContainer" class="hidden mt-8 pt-6 border-t border-slate-700/80">
+                    <div id="resultadoOSContent" class="bg-brand-dark/80 p-6 rounded-2xl border border-slate-700 space-y-4"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/layout.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/consultar-os.js"></script>
+</body>
+</html>

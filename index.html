@@ -3,524 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JIMO Eletrônica | Manutenção em TVs e Placas Eletrônicas em Geral</title>
-    
-    <!-- Meta Tags SEO & Redes Sociais / WhatsApp -->
-    <meta name="description" content="JIMO Eletrônica - Assistência Técnica Especializada em TVs e Placas Eletrônicas em Ananindeua - PA. Orçamento rápido via WhatsApp!">
-    <meta property="og:title" content="JIMO Eletrônica | Assistência Técnica Especializada">
-    <meta property="og:description" content="Manutenção de Smart TVs, Placas Eletrônicas e Equipamentos em Ananindeua - PA. Solicite seu orçamento rápido!">
-    <meta property="og:type" content="website">
-
-    <!-- Favicon Inline em SVG -->
+    <title>JIMO Eletrônica | Assistência em Smart TV e Eletrônicos em Geral</title>
+    <meta name="description" content="Assistência Técnica Especializada em Smart TV e Eletrônicos em Geral em Ananindeua - PA.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%2300a8ff%22/><text x=%2250%%22 y=%2265%%22 font-size=%2260%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22>J</text></svg>">
-    
-    <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            dark: '#030f1d',
-                            navy: '#05182c',
-                            blue: '#007bbd',
-                            cyan: '#00a8ff',
-                            lightCyan: '#00e5ff',
-                            accent: '#00c6ff',
-                            slate: '#13283f'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                    }
-                }
-            }
+            theme: { extend: {
+                colors: { brand: { dark:'#030f1d', navy:'#05182c', blue:'#007bbd', cyan:'#00a8ff', lightCyan:'#00e5ff', accent:'#00c6ff', slate:'#13283f' } },
+                fontFamily: { sans: ['Poppins', 'sans-serif'] }
+            }}
         }
     </script>
-
-    <!-- CSS Externo -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="circuit-pattern antialiased text-slate-100 flex flex-col min-h-screen">
 
-    <!-- ================= HEADER ================= -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-brand-dark/95 backdrop-blur-md border-b border-brand-cyan/20 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo (ID adicionado para o método dos 3 cliques) -->
-                <a href="#inicio" id="logoJimo" class="flex items-center gap-3 group select-none">
-                    <div class="relative flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-blue to-brand-cyan p-0.5 shadow-lg shadow-brand-cyan/20 group-hover:scale-105 transition-transform duration-300">
-                        <div class="w-full h-full bg-brand-navy rounded-[10px] flex items-center justify-center text-brand-cyan font-bold text-2xl relative overflow-hidden">
-                            <i class="fa-solid fa-microchip text-xl"></i>
+    <!-- HEADER (injetado via JS) -->
+    <div id="header-placeholder"></div>
+
+    <!-- CONTEÚDO DA PÁGINA -->
+    <main class="flex-grow">
+        <section class="pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden flex items-center min-h-[85vh]">
+            <div class="absolute top-1/4 left-10 w-72 h-72 bg-brand-cyan/15 rounded-full filter blur-[100px] pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-brand-blue/20 rounded-full filter blur-[120px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs sm:text-sm font-semibold">
+                            <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
+                            ASSISTÊNCIA TÉCNICA ESPECIALIZADA EM ANANINDEUA - PA
+                        </div>
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+                            Assistência em <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-lightCyan to-brand-blue">Smart TV e Eletrônicos</span> em Geral
+                        </h1>
+                        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            Sua Smart TV parou ou algum eletrônico apresentou defeito? A <strong class="text-white">JIMO Eletrônica</strong> resolve com rapidez e garantia.
+                        </p>
+                        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <a href="orcamento.html" class="w-full sm:w-auto bg-gradient-to-r from-brand-cyan to-brand-blue text-brand-dark font-bold px-8 py-4 rounded-xl shadow-xl transition text-center flex items-center justify-center gap-3">
+                                <i class="fa-solid fa-calculator text-lg"></i> <span>Solicitar Orçamento Grátis</span>
+                            </a>
+                            <a href="consultar-os.html" class="w-full sm:w-auto bg-brand-navy border border-brand-cyan/40 hover:bg-brand-slate text-slate-200 font-semibold px-7 py-4 rounded-xl transition text-center flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-magnifying-glass text-brand-cyan"></i> <span>Consultar Minha OS</span>
+                            </a>
                         </div>
                     </div>
-                    <div class="flex flex-col">
-                        <div class="flex items-center gap-1.5">
-                            <span class="font-extrabold text-2xl tracking-wider text-white">JIMO</span>
-                            <span class="text-xs bg-brand-cyan/20 text-brand-cyan px-2 py-0.5 rounded font-semibold border border-brand-cyan/30 uppercase tracking-widest">Eletrônica</span>
+
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-md bg-gradient-to-b from-brand-navy to-brand-dark p-6 rounded-2xl border border-brand-cyan/30 shadow-2xl">
+                            <div class="flex items-center justify-between border-b border-slate-700/80 pb-4 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                                </div>
+                                <span class="text-xs font-mono text-brand-cyan bg-brand-cyan/10 px-2 py-1 rounded">JIMO_DIAG_v3.0</span>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="bg-brand-slate/80 p-4 rounded-xl border border-slate-700/60 flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-brand-cyan/10 flex items-center justify-center text-brand-cyan text-2xl"><i class="fa-solid fa-tv"></i></div>
+                                    <div><h3 class="text-white font-bold text-sm">Smart TVs</h3><p class="text-xs text-slate-400">LED, OLED, QLED, Plasma</p></div>
+                                </div>
+                                <div class="bg-brand-slate/80 p-4 rounded-xl border border-slate-700/60 flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-brand-cyan/10 flex items-center justify-center text-brand-cyan text-2xl"><i class="fa-solid fa-microchip"></i></div>
+                                    <div><h3 class="text-white font-bold text-sm">Placas Eletrônicas</h3><p class="text-xs text-slate-400">SMD, CI, Trilhas</p></div>
+                                </div>
+                                <div class="bg-brand-slate/80 p-4 rounded-xl border border-slate-700/60 flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-brand-cyan/10 flex items-center justify-center text-brand-cyan text-2xl"><i class="fa-solid fa-bolt"></i></div>
+                                    <div><h3 class="text-white font-bold text-sm">Eletrônicos em Geral</h3><p class="text-xs text-slate-400">Som, Micro-ondas, Inversores</p></div>
+                                </div>
+                            </div>
                         </div>
-                        <span class="text-[10px] text-brand-cyan/80 font-medium tracking-tight">MANUTENÇÃO EM TVS E PLACAS ELETRÔNICAS</span>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-gradient-to-r from-brand-blue via-brand-cyan to-brand-blue text-brand-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-3">Equipamento com Problema?</h2>
+                <p class="text-brand-dark/90 max-w-2xl mx-auto mb-8">Fale agora com quem entende de reparos em Smart TV e eletrônicos.</p>
+                <a href="https://wa.me/5591982871598" target="_blank" class="inline-flex items-center gap-3 bg-brand-dark text-white hover:bg-slate-900 font-bold px-8 py-4 rounded-xl shadow-2xl transition transform hover:scale-105">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i> Chamar no WhatsApp
                 </a>
-
-                <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
-                    <a href="#inicio" class="text-slate-300 hover:text-brand-cyan transition-colors py-2">Início</a>
-                    <a href="#servicos" class="text-slate-300 hover:text-brand-cyan transition-colors py-2">Serviços</a>
-                    <a href="#sobre" class="text-slate-300 hover:text-brand-cyan transition-colors py-2">Sobre Nós</a>
-                    <a href="#orcamento" class="text-brand-cyan font-semibold py-2 flex items-center gap-1"><i class="fa-solid fa-calculator text-xs"></i> Orçamento</a>
-                    <a href="#os" class="text-slate-300 hover:text-brand-cyan transition-colors py-2">Consultar OS</a>
-                    <a href="#contato" class="text-slate-300 hover:text-brand-cyan transition-colors py-2">Contato</a>
-                </nav>
-
-                <div class="hidden lg:flex items-center gap-3">
-                    <a href="#orcamento" class="bg-gradient-to-r from-brand-cyan to-brand-blue hover:from-brand-lightCyan hover:to-brand-cyan text-brand-dark font-bold px-5 py-2.5 rounded-lg shadow-lg shadow-brand-cyan/20 hover:shadow-brand-cyan/40 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2 text-sm">
-                        <i class="fa-solid fa-paper-plane"></i> Pedir Orçamento
-                    </a>
-                </div>
-
-                <button id="mobile-menu-btn" aria-label="Abrir Menu" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2 rounded-lg bg-brand-navy border border-brand-cyan/30">
-                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
-                </button>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-navy border-b border-brand-cyan/20 px-4 pt-2 pb-6 space-y-3 shadow-xl">
-            <a href="#inicio" class="block py-2 px-3 rounded-lg text-slate-200 hover:bg-brand-slate hover:text-brand-cyan font-medium transition">Início</a>
-            <a href="#servicos" class="block py-2 px-3 rounded-lg text-slate-200 hover:bg-brand-slate hover:text-brand-cyan font-medium transition">Serviços</a>
-            <a href="#sobre" class="block py-2 px-3 rounded-lg text-slate-200 hover:bg-brand-slate hover:text-brand-cyan font-medium transition">Sobre Nós</a>
-            <a href="#orcamento" class="block py-2 px-3 rounded-lg text-brand-cyan font-semibold hover:bg-brand-slate transition flex items-center gap-2"><i class="fa-solid fa-calculator text-sm"></i> Solicitar Orçamento</a>
-            <a href="#os" class="block py-2 px-3 rounded-lg text-slate-200 hover:bg-brand-slate hover:text-brand-cyan font-medium transition">Consultar OS</a>
-            <a href="#contato" class="block py-2 px-3 rounded-lg text-slate-200 hover:bg-brand-slate hover:text-brand-cyan font-medium transition">Contato</a>
-            <div class="pt-2 border-t border-slate-700/50">
-                <a href="https://wa.me/5591982871598?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20manuten%C3%A7%C3%A3o." target="_blank" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2 shadow-lg transition">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> Conversar no WhatsApp
-                </a>
-            </div>
-        </div>
-    </header>
+    <!-- FOOTER (injetado via JS) -->
+    <div id="footer-placeholder"></div>
 
-    <!-- ================= HERO ================= -->
-    <section id="inicio" class="pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden flex items-center min-h-[85vh]">
-        <div class="absolute top-1/4 left-10 w-72 h-72 bg-brand-cyan/15 rounded-full filter blur-[100px] pointer-events-none"></div>
-        <div class="absolute bottom-10 right-10 w-96 h-96 bg-brand-blue/20 rounded-full filter blur-[120px] pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs sm:text-sm font-semibold tracking-wide">
-                        <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
-                        ASSISTÊNCIA TÉCNICA ESPECIALIZADA EM ANANINDEUA - PA
-                    </div>
-
-                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-                        Manutenção em <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-lightCyan to-brand-blue">TVs & Placas Eletrônicas</span> em Geral
-                    </h1>
-
-                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                        Sua Smart TV parou ou sua placa eletrônica apresentou defeito? A <strong class="text-white">JIMO Eletrônica</strong> resolve com rapidez, diagnósticos de precisão e garantia de qualidade técnica.
-                    </p>
-
-                    <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-4 text-xs sm:text-sm text-slate-300 font-medium">
-                        <div class="flex items-center gap-2 bg-brand-navy/80 px-3 py-2 rounded-lg border border-slate-700/60"><i class="fa-solid fa-circle-check text-brand-cyan"></i> <span>Atendimento Rápido</span></div>
-                        <div class="flex items-center gap-2 bg-brand-navy/80 px-3 py-2 rounded-lg border border-slate-700/60"><i class="fa-solid fa-microchip text-brand-cyan"></i> <span>Reparos em Nível de Componentes</span></div>
-                        <div class="flex items-center gap-2 bg-brand-navy/80 px-3 py-2 rounded-lg border border-slate-700/60"><i class="fa-solid fa-shield-halved text-brand-cyan"></i> <span>Serviço com Garantia</span></div>
-                    </div>
-
-                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                        <a href="#orcamento" class="w-full sm:w-auto bg-gradient-to-r from-brand-cyan to-brand-blue hover:from-brand-lightCyan hover:to-brand-cyan text-brand-dark font-bold px-8 py-4 rounded-xl shadow-xl shadow-brand-cyan/25 hover:shadow-brand-cyan/40 transition-all duration-300 text-center flex items-center justify-center gap-3 transform hover:-translate-y-1">
-                            <i class="fa-solid fa-calculator text-lg"></i> <span>Solicitar Orçamento Grátis</span>
-                        </a>
-                        <a href="#os" class="w-full sm:w-auto bg-brand-navy border border-brand-cyan/40 hover:bg-brand-slate text-slate-200 font-semibold px-7 py-4 rounded-xl transition-all duration-300 text-center flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-magnifying-glass text-brand-cyan"></i> <span>Consultar Minha OS</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="relative w-full max-w-md bg-gradient-to-b from-brand-navy to-brand-dark p-6 rounded-2xl border border-brand-cyan/30 shadow-2xl shadow-brand-cyan/10">
-                        <div class="flex items-center justify-between border-b border-slate-700/80 pb-4 mb-6">
-                            <div class="flex items-center gap-2">
-                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
-                            </div>
-                            <span class="text-xs font-mono text-brand-cyan bg-brand-cyan/10 px-2 py-1 rounded">JIMO_DIAGNOSTIC_SYS_v2.6</span>
-                        </div>
-
-                        <div class="space-y-4">
-                            <div class="bg-brand-slate/80 p-4 rounded-xl border border-slate-700/60 flex items-center gap-4 hover:border-brand-cyan/60 transition group">
-                                <div class="w-12 h-12 rounded-lg bg-brand-cyan/10 flex items-center justify-center text-brand-cyan text-2xl group-hover:scale-110 transition"><i class="fa-solid fa-tv"></i></div>
-                                <div>
-                                    <h3 class="text-white font-bold text-sm">Smart TVs (LED, OLED, QLED)</h3>
-                                    <p class="text-xs text-slate-400">Troca de LEDs, reparo de fonte, imagem sem som, reiniciando.</p>
-                                </div>
-                            </div>
-                            <div class="bg-brand-slate/80 p-4 rounded-xl border border-slate-700/60 flex items-center gap-4 hover:border-brand-cyan/60 transition group">
-                                <div class="w-12 h-12 rounded-lg bg-brand-cyan/10 flex items-center justify-center text-brand-cyan text-2xl group-hover:scale-110 transition"><i class="fa-solid fa-microchip"></i></div>
-                                <div>
-                                    <h3 class="text-white font-bold text-sm">Placas Eletrônicas em Geral</h3>
-                                    <p class="text-xs text-slate-400">Recondicionamento de circuitos, solda SMD e substituição de CI.</p>
-                                </div>
-                            </div>
-                            <div class="bg-brand-slate/80 p-4 rounded-xl border border-slate-700/60 flex items-center gap-4 hover:border-brand-cyan/60 transition group">
-                                <div class="w-12 h-12 rounded-lg bg-brand-cyan/10 flex items-center justify-center text-brand-cyan text-2xl group-hover:scale-110 transition"><i class="fa-solid fa-bolt"></i></div>
-                                <div>
-                                    <h3 class="text-white font-bold text-sm">Recuperação de Equipamentos</h3>
-                                    <p class="text-xs text-slate-400">Micro-ondas, Som, Inversores e Módulos diversos.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mt-6 pt-4 border-t border-slate-700/80 flex items-center justify-between text-xs text-slate-400">
-                            <span class="flex items-center gap-1.5 text-emerald-400 font-semibold">
-                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Laboratório Aberto
-                            </span>
-                            <span>Ananindeua - Pará</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= SERVICES ================= -->
-    <section id="servicos" class="py-20 bg-brand-navy/60 relative border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-brand-cyan font-semibold text-xs tracking-widest uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Nossas Especialidades</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Serviços Técnicos Especializados</h2>
-                <p class="text-slate-400 mt-3 text-sm sm:text-base">Oferecemos soluções completas com alta precisão e componentes originais ou homologados.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-brand-dark/90 p-8 rounded-2xl border border-slate-800 hover:border-brand-cyan/50 transition-all duration-300 transform hover:-translate-y-2 group shadow-xl">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-tr from-brand-blue/30 to-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-2xl mb-6 group-hover:scale-110 transition"><i class="fa-solid fa-tv"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-3">Conserto de TVs</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Reparo em Smart TVs de todas as marcas. Soluções para tela escura com som, barramentos de LED queimados, placa principal e fonte.</p>
-                    <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Troca de Barra de LEDs</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Reparo de Placa Principal e T-CON</li>
-                    </ul>
-                </div>
-                <div class="bg-brand-dark/90 p-8 rounded-2xl border border-slate-800 hover:border-brand-cyan/50 transition-all duration-300 transform hover:-translate-y-2 group shadow-xl">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-tr from-brand-blue/30 to-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-2xl mb-6 group-hover:scale-110 transition"><i class="fa-solid fa-microchip"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-3">Reparo de Placas Eletrônicas</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Especializados em recuperação e recondicionamento de placas de circuito impresso em geral.</p>
-                    <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Substituição de Componentes SMD</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Restauração de Trilhas Queimadas</li>
-                    </ul>
-                </div>
-                <div class="bg-brand-dark/90 p-8 rounded-2xl border border-slate-800 hover:border-brand-cyan/50 transition-all duration-300 transform hover:-translate-y-2 group shadow-xl">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-tr from-brand-blue/30 to-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-2xl mb-6 group-hover:scale-110 transition"><i class="fa-solid fa-wave-square"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-3">Diagnóstico de Precisão</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Análise minuciosa utilizando instrumentos avançados para identificar a causa exata do defeito.</p>
-                    <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Laudo Técnico Detalhado</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Testes de Estresse Pós-Reparo</li>
-                    </ul>
-                </div>
-                <div class="bg-brand-dark/90 p-8 rounded-2xl border border-slate-800 hover:border-brand-cyan/50 transition-all duration-300 transform hover:-translate-y-2 group shadow-xl">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-tr from-brand-blue/30 to-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-2xl mb-6 group-hover:scale-110 transition"><i class="fa-solid fa-radio"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-3">Aparelhos de Som e Áudio</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Assistência técnica em Mini Systems, Caixas Amplificadas e Amplificadores com problemas na saída de áudio.</p>
-                    <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Reparo de Etapa de Potência</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Correção de Ruídos e Distorções</li>
-                    </ul>
-                </div>
-                <div class="bg-brand-dark/90 p-8 rounded-2xl border border-slate-800 hover:border-brand-cyan/50 transition-all duration-300 transform hover:-translate-y-2 group shadow-xl">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-tr from-brand-blue/30 to-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-2xl mb-6 group-hover:scale-110 transition"><i class="fa-solid fa-kitchen-set"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-3">Micro-ondas e Eletrônicos</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Manutenção corretiva e preventiva com substituição de magnetrons, capacitores de alta tensão e recuperação de placa.</p>
-                    <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Revisão dos Sistemas de Segurança</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Troca de Membranas e Painel Touch</li>
-                    </ul>
-                </div>
-                <div class="bg-brand-dark/90 p-8 rounded-2xl border border-slate-800 hover:border-brand-cyan/50 transition-all duration-300 transform hover:-translate-y-2 group shadow-xl">
-                    <div class="w-14 h-14 rounded-xl bg-gradient-to-tr from-brand-blue/30 to-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-2xl mb-6 group-hover:scale-110 transition"><i class="fa-solid fa-clipboard-check"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-3">Manutenção Preventiva</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Limpeza técnica, troca de pasta térmica, ressoldagem preventiva e verificação de capacitores estufados.</p>
-                    <ul class="text-xs text-slate-300 space-y-2 pt-2 border-t border-slate-800">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Maior Vida Útil ao Equipamento</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> Economia contra Curtos Severos</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= ABOUT ================= -->
-    <section id="sobre" class="py-20 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-5">
-                    <div class="bg-gradient-to-br from-brand-navy to-brand-slate p-8 rounded-3xl border border-brand-cyan/30 relative shadow-2xl">
-                        <div class="absolute -top-4 -right-4 bg-brand-cyan text-brand-dark font-black text-xs px-4 py-2 rounded-full uppercase shadow-lg">Ananindeua - PA</div>
-                        <h3 class="text-2xl font-extrabold text-white mb-4">JIMO Eletrônica</h3>
-                        <p class="text-slate-300 text-sm leading-relaxed mb-6">Com sólida dedicação e conhecimento técnico em eletrônica aplicada, somos referência no diagnóstico e reparo de TVs e circuitos eletrônicos.</p>
-                        <div class="space-y-3 font-medium text-sm text-slate-200">
-                            <div class="flex items-center gap-3 bg-brand-dark/60 p-3 rounded-xl border border-slate-700/50"><i class="fa-solid fa-screwdriver-wrench text-brand-cyan"></i> <span>Bancada Equipada com Tecnologia</span></div>
-                            <div class="flex items-center gap-3 bg-brand-dark/60 p-3 rounded-xl border border-slate-700/50"><i class="fa-solid fa-handshake text-brand-cyan"></i> <span>Transparência no Orçamento</span></div>
-                            <div class="flex items-center gap-3 bg-brand-dark/60 p-3 rounded-xl border border-slate-700/50"><i class="fa-solid fa-barcode text-brand-cyan"></i> <span>Rastreabilidade por Ordem de Serviço</span></div>
-                        </div>
-                        <div class="mt-8 pt-6 border-t border-slate-700/60 flex items-center justify-between">
-                            <div><span class="block text-xs text-slate-400">Atendimento Técnico:</span><span class="text-white font-bold text-sm">Segunda a Sábado</span></div>
-                            <a href="https://wa.me/5591982871598" target="_blank" class="text-brand-cyan font-bold text-xs hover:underline flex items-center gap-1">Falar com o Técnico <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:col-span-7 space-y-6">
-                    <span class="text-brand-cyan font-semibold text-xs tracking-widest uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Compromisso Técnico</span>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Experiência, Respeito ao Cliente e Diagnóstico Honesto</h2>
-                    <p class="text-slate-300 text-base leading-relaxed">Entendemos o valor do seu equipamento. Por isso, na <strong class="text-white">JIMO Eletrônica</strong>, cada item recebido é tratado com extremo rigor técnico. Buscamos sempre reparar componentes a nível de circuito antes de indicar a troca completa de placas.</p>
-                    <div class="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
-                        <div class="bg-brand-navy/60 p-4 rounded-xl border border-slate-800 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-brand-cyan/20 text-brand-cyan flex items-center justify-center font-bold text-sm border border-brand-cyan/40">1</span><h4 class="text-white font-bold text-xs sm:text-sm">Recepção</h4><p class="text-[11px] text-slate-400 mt-1">Registro & Emissão da OS</p></div>
-                        <div class="bg-brand-navy/60 p-4 rounded-xl border border-slate-800 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-brand-cyan/20 text-brand-cyan flex items-center justify-center font-bold text-sm border border-brand-cyan/40">2</span><h4 class="text-white font-bold text-xs sm:text-sm">Análise</h4><p class="text-[11px] text-slate-400 mt-1">Testes em Bancada</p></div>
-                        <div class="bg-brand-navy/60 p-4 rounded-xl border border-slate-800 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-brand-cyan/20 text-brand-cyan flex items-center justify-center font-bold text-sm border border-brand-cyan/40">3</span><h4 class="text-white font-bold text-xs sm:text-sm">Aprovação</h4><p class="text-[11px] text-slate-400 mt-1">Orçamento via Whats</p></div>
-                        <div class="bg-brand-navy/60 p-4 rounded-xl border border-slate-800 text-center"><span class="w-8 h-8 mx-auto mb-2 rounded-full bg-brand-cyan/20 text-brand-cyan flex items-center justify-center font-bold text-sm border border-brand-cyan/40">4</span><h4 class="text-white font-bold text-xs sm:text-sm">Entrega</h4><p class="text-[11px] text-slate-400 mt-1">Testado & Garantido</p></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= ORÇAMENTO ================= -->
-    <section id="orcamento" class="py-20 bg-gradient-to-b from-brand-navy to-brand-dark border-t border-b border-brand-cyan/20 relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-12">
-                <span class="text-brand-cyan font-semibold text-xs tracking-widest uppercase bg-brand-cyan/10 px-3.5 py-1.5 rounded-full border border-brand-cyan/30"><i class="fa-solid fa-calculator mr-1"></i> Orçamento Online Rápido</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">Solicite seu Orçamento Sem Compromisso</h2>
-                <p class="text-slate-300 text-sm sm:text-base mt-2">Preencha os dados abaixo. O formulário salvará seu pedido e gerará automaticamente o atendimento no WhatsApp.</p>
-            </div>
-
-            <div class="bg-brand-slate/90 rounded-3xl p-6 sm:p-10 border border-brand-cyan/30 shadow-2xl backdrop-blur-md">
-                <form id="formOrcamento" class="space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2" for="nome">Seu Nome Completo *</label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400"><i class="fa-solid fa-user text-sm"></i></span>
-                                <input type="text" id="nome" required placeholder="Ex: João da Silva" class="w-full bg-brand-dark/90 border border-slate-700 focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan rounded-xl py-3 pl-10 pr-4 text-sm text-white placeholder-slate-500 outline-none transition">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2" for="whatsapp">WhatsApp / Telefone *</label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-slate-400"><i class="fa-brands fa-whatsapp text-sm"></i></span>
-                                <input type="tel" id="whatsapp" required placeholder="(91) 98888-8888" class="w-full bg-brand-dark/90 border border-slate-700 focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan rounded-xl py-3 pl-10 pr-4 text-sm text-white placeholder-slate-500 outline-none transition">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2" for="tipoEquipamento">Tipo de Equipamento *</label>
-                            <div class="relative">
-                                <select id="tipoEquipamento" required class="w-full bg-brand-dark/90 border border-slate-700 focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan rounded-xl py-3 px-3 text-sm text-white outline-none transition appearance-none">
-                                    <option value="" disabled selected>Selecione...</option>
-                                    <option value="Smart TV / TV LED">Smart TV / TV LED/OLED</option>
-                                    <option value="Placa Eletrônica">Placa Eletrônica em Geral</option>
-                                    <option value="Aparelho de Som">Aparelho de Som / Amp</option>
-                                    <option value="Micro-ondas">Micro-ondas</option>
-                                    <option value="Outro Eletrônico">Outro Equipamento</option>
-                                </select>
-                                <span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400"><i class="fa-solid fa-chevron-down text-xs"></i></span>
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2" for="marca">Marca</label>
-                            <input type="text" id="marca" placeholder="Ex: Samsung, LG..." class="w-full bg-brand-dark/90 border border-slate-700 focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 outline-none transition">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2" for="modelo">Modelo / Polegadas</label>
-                            <input type="text" id="modelo" placeholder="Ex: 55UN7310" class="w-full bg-brand-dark/90 border border-slate-700 focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 outline-none transition">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2" for="defeito">Descrição do Defeito ou Sintoma *</label>
-                        <textarea id="defeito" rows="4" required placeholder="Descreva o que acontece: Ex: Tem som mas a tela está escura; Não liga nada..." class="w-full bg-brand-dark/90 border border-slate-700 focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan rounded-xl p-4 text-sm text-white placeholder-slate-500 outline-none transition resize-none"></textarea>
-                    </div>
-
-                    <div class="bg-brand-dark/50 p-4 rounded-xl border border-dashed border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-3">
-                        <div class="flex items-center gap-3 text-slate-300 text-xs"><i class="fa-solid fa-camera text-brand-cyan text-lg"></i> <span>Você poderá anexar fotos ou vídeos do defeito diretamente na conversa do WhatsApp.</span></div>
-                        <span class="text-[11px] text-brand-cyan bg-brand-cyan/10 px-2.5 py-1 rounded font-mono">Prático & Rápido</span>
-                    </div>
-
-                    <div>
-                        <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-bold py-4 px-6 rounded-xl shadow-xl shadow-emerald-500/20 hover:shadow-emerald-500/40 transition-all duration-300 text-center flex items-center justify-center gap-3 text-base">
-                            <i class="fa-brands fa-whatsapp text-2xl"></i> <span>Gerar e Enviar Orçamento pelo WhatsApp</span>
-                        </button>
-                    </div>
-                </form>
-
-                <div id="orcamentoFeedback" class="hidden mt-6 p-4 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-sm text-center">
-                    <i class="fa-solid fa-circle-check text-xl mb-1 block"></i>
-                    <strong>Redirecionando para o WhatsApp...</strong>
-                    <p class="text-xs text-emerald-200 mt-1">A mensagem formatada foi gerada e o orçamento foi salvo no sistema.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= CONSULTA OS ================= -->
-    <section id="os" class="py-20 bg-brand-dark relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-br from-brand-navy via-brand-slate to-brand-dark p-8 sm:p-12 rounded-3xl border border-brand-cyan/30 shadow-2xl relative overflow-hidden">
-                <div class="text-center max-w-2xl mx-auto space-y-3 mb-8">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-xs font-semibold"><i class="fa-solid fa-barcode"></i> ACOMPANHAMENTO DE ATENDIMENTO</div>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Consultar Ordem de Serviço (OS)</h2>
-                    <p class="text-slate-300 text-sm">Digite o número da sua Ordem de Serviço fornecida na entrega do equipamento para verificar o status atualizado.</p>
-                </div>
-
-                <div class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
-                    <div class="relative flex-1">
-                        <input type="text" id="inputNumeroOS" placeholder="Ex: 1717000000000" class="w-full bg-brand-dark border border-slate-700 focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan rounded-xl py-3.5 px-4 text-white text-sm placeholder-slate-500 outline-none transition font-mono">
-                    </div>
-                    <button onclick="buscarOS()" class="bg-brand-cyan hover:bg-brand-lightCyan text-brand-dark font-bold px-6 py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-brand-cyan/20">
-                        <i class="fa-solid fa-magnifying-glass"></i> <span>Consultar</span>
-                    </button>
-                </div>
-
-                <div id="resultadoOSContainer" class="hidden mt-8 pt-6 border-t border-slate-700/80">
-                    <div id="resultadoOSContent" class="bg-brand-dark/80 p-6 rounded-2xl border border-slate-700 text-left space-y-4"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= CONTATO ================= -->
-    <section id="contato" class="py-20 bg-brand-navy/40 relative border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-brand-cyan font-semibold text-xs tracking-widest uppercase bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/30">Localização e Contato</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Fale Conosco ou Visite Nosso Laboratório</h2>
-                <p class="text-slate-400 mt-2 text-sm sm:text-base">Estamos localizados em Ananindeua - PA, prontos para atender você com pontualidade.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                <div class="lg:col-span-5 space-y-4">
-                    <a href="https://wa.me/5591982871598" target="_blank" class="block bg-brand-dark p-6 rounded-2xl border border-slate-800 hover:border-brand-cyan/50 transition group shadow-lg">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl group-hover:scale-110 transition"><i class="fa-brands fa-whatsapp"></i></div>
-                            <div><strong class="block text-white text-base font-bold">Telefone / WhatsApp</strong><span class="text-slate-300 text-sm">+55 (91) 98287-1598</span><span class="block text-xs text-emerald-400 font-medium mt-1">Clique para iniciar conversa no WhatsApp</span></div>
-                        </div>
-                    </a>
-                    <a href="mailto:j.ivomota2@gmail.com" class="block bg-brand-dark p-6 rounded-2xl border border-slate-800 hover:border-brand-cyan/50 transition group shadow-lg">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition"><i class="fa-solid fa-envelope"></i></div>
-                            <div><strong class="block text-white text-base font-bold">E-mail de Contato</strong><span class="text-slate-300 text-sm">j.ivomota2@gmail.com</span><span class="block text-xs text-slate-400 mt-1">Envie dúvidas ou especificações técnicas</span></div>
-                        </div>
-                    </a>
-                    <div class="bg-brand-dark p-6 rounded-2xl border border-slate-800 shadow-lg">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-brand-blue/20 border border-brand-blue/40 flex items-center justify-center text-brand-cyan text-xl"><i class="fa-solid fa-location-dot"></i></div>
-                            <div><strong class="block text-white text-base font-bold">Endereço da Assistência</strong><p class="text-slate-300 text-sm leading-relaxed mt-1">Rod. Transcoqueiro, Pas. Presidente Vargas, Vila Aliança, N° 71 – Una<br><strong class="text-white">Ananindeua – PA</strong><br>CEP: 67.013-892</p></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:col-span-7 bg-brand-dark p-3 rounded-2xl border border-slate-800 shadow-2xl h-[420px]">
-                    <iframe title="Mapa JIMO Eletrônica" class="w-full h-full rounded-xl border-0 grayscale hover:grayscale-0 transition-all duration-500" src="https://www.google.com/maps?q=Rod.%20Transcoqueiro%20Passagem%20Presidente%20Vargas%2071%20Ananindeua%20PA&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= CTA ================= -->
-    <section class="py-16 bg-gradient-to-r from-brand-blue via-brand-cyan to-brand-blue text-brand-dark relative overflow-hidden shadow-2xl">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mb-3">Seu Equipamento com Problema ou Sem Imagem?</h2>
-            <p class="text-brand-dark/90 font-medium text-base sm:text-lg max-w-2xl mx-auto mb-8">Fale agora com quem entende de reparos em nível de componente eletrônico. Solicite sua avaliação rápida!</p>
-            <a href="https://wa.me/5591982871598?text=Ol%C3%A1%20JIMO%20Eletr%C3%B4nica,%20quero%20solicitar%20uma%20avalia%C3%A7%C3%A3o%20t%C3%A9cnica." target="_blank" class="inline-flex items-center gap-3 bg-brand-dark text-white hover:bg-slate-900 font-bold px-8 py-4 rounded-xl shadow-2xl transition transform hover:scale-105">
-                <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i> <span>Chamar no WhatsApp Agora</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- ================= ADMIN PANEL (OCULTO) ================= -->
-    <section id="admin-panel" class="hidden py-20 bg-brand-dark relative border-t border-brand-cyan/30">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-br from-brand-navy via-brand-slate to-brand-dark p-8 rounded-3xl border border-brand-cyan/30 shadow-2xl">
-                <div class="flex flex-col sm:flex-row justify-between items-center mb-8 border-b border-slate-700/80 pb-4 gap-4">
-                    <h2 class="text-2xl font-extrabold text-white flex items-center gap-3"><i class="fa-solid fa-user-cog text-brand-cyan"></i> Painel do Técnico</h2>
-                    <div class="flex gap-3">
-                        <button id="btnAtualizarLista" class="bg-brand-cyan hover:bg-brand-lightCyan text-brand-dark font-bold px-4 py-2 rounded-lg text-sm transition flex items-center gap-2"><i class="fa-solid fa-sync-alt"></i> Atualizar</button>
-                        <button id="btnExportar" class="bg-brand-blue hover:bg-blue-600 text-white font-bold px-4 py-2 rounded-lg text-sm transition flex items-center gap-2"><i class="fa-solid fa-download"></i> Backup</button>
-                        <button id="btnSairAdmin" class="bg-red-500 hover:bg-red-600 text-white font-bold px-4 py-2 rounded-lg text-sm transition flex items-center gap-2"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <input type="text" id="filtroAdmin" placeholder="Filtrar por nome, ID ou status..." class="w-full bg-brand-dark border border-slate-700 focus:border-brand-cyan rounded-xl py-3 px-4 text-white text-sm outline-none transition">
-                </div>
-
-                <div id="listaOrcamentosAdmin" class="space-y-4 max-h-[600px] overflow-y-auto pr-2"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= FOOTER ================= -->
-    <footer class="bg-brand-dark text-slate-400 border-t border-slate-800 pt-16 pb-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-                <div class="md:col-span-2 space-y-4">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-brand-blue to-brand-cyan flex items-center justify-center text-brand-dark font-extrabold text-xl">J</div>
-                        <span class="font-bold text-xl text-white tracking-wider">JIMO ELETRÔNICA</span>
-                    </div>
-                    <p class="text-sm text-slate-400 max-w-md leading-relaxed">Manutenção em TVs e Placas Eletrônicas em Geral. Serviços especializados com transparência, rápida entrega e compromisso com o cliente em Ananindeua e Região Metropolitana.</p>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 border-b border-brand-cyan/30 pb-2 inline-block">Navegação</h4>
-                    <ul class="space-y-2.5 text-sm">
-                        <li><a href="#inicio" class="hover:text-brand-cyan transition">Início</a></li>
-                        <li><a href="#servicos" class="hover:text-brand-cyan transition">Serviços</a></li>
-                        <li><a href="#sobre" class="hover:text-brand-cyan transition">Sobre a JIMO</a></li>
-                        <li><a href="#orcamento" class="hover:text-brand-cyan transition">Orçamento Online</a></li>
-                        <li><a href="#os" class="hover:text-brand-cyan transition">Minha Ordem de Serviço</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 border-b border-brand-cyan/30 pb-2 inline-block">Contato Direto</h4>
-                    <ul class="space-y-2.5 text-sm">
-                        <li class="flex items-center gap-2"><i class="fa-brands fa-whatsapp text-emerald-400"></i> (91) 98287-1598</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-brand-cyan"></i> j.ivomota2@gmail.com</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-red-400"></i> Ananindeua – PA</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-                <p>© 2026 JIMO Eletrônica — Todos os direitos reservados.</p>
-                <div class="flex items-center gap-4">
-                    <p>Ananindeua - Pará - Brasil</p>
-                    <!-- Botão de emergência (método 4) -->
-                    <button id="btnAcessoAdmin" class="opacity-40 hover:opacity-100 transition text-slate-500 hover:text-brand-cyan text-[10px] flex items-center gap-1.5" title="Acesso Restrito">
-                        <i class="fa-solid fa-lock text-[10px]"></i>
-                        <span class="underline">Acesso Restrito</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ================= FLOATING WHATSAPP ================= -->
-    <a href="https://wa.me/5591982871598?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20JIMO%20Eletr%C3%B4nica%20e%20gostaria%20de%20atendimento." 
-       target="_blank" title="Falar no WhatsApp" 
-       class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-3xl shadow-2xl whatsapp-pulse transition transform hover:scale-110">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <!-- ================= JS EXTERNO ================= -->
+    <!-- JS -->
+    <script src="js/layout.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
